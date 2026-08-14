@@ -44,6 +44,7 @@ const ACTIVITIES = [
   },
   {
     icon: Users2,
+    image: "/activite-entraide.jpg",
     tag: "Toute l'année",
     title: "Cadre d'entraide et de solidarité",
     description:
@@ -89,7 +90,7 @@ export default function ActivitesPage() {
 
       <section className="py-16 sm:py-24">
         <Container className="grid gap-8 md:grid-cols-2">
-          {ACTIVITIES.map(({ icon: Icon, tag, title, description, points }, i) => {
+          {ACTIVITIES.map(({ icon: Icon, image, tag, title, description, points }, i) => {
             const tone = i % 2 === 0 ? "primary" : "secondary";
             return (
               <div
@@ -100,7 +101,17 @@ export default function ActivitesPage() {
                     : "bg-secondary-50 ring-secondary-100"
                 }`}
               >
-                <ActivityIllustration icon={Icon} tone={tone} className="rounded-none" />
+                {image ? (
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={1402}
+                    height={1122}
+                    className="h-40 w-full object-cover"
+                  />
+                ) : (
+                  <ActivityIllustration icon={Icon} tone={tone} className="rounded-none" />
+                )}
                 <div className="flex-1 p-8 sm:p-10">
                   <div className="flex items-start justify-between gap-4">
                     <span
