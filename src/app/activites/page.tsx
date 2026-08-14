@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
+import ActivityIllustration from "@/components/ActivityIllustration";
 
 export const metadata: Metadata = {
   title: "Activités",
@@ -87,68 +88,65 @@ export default function ActivitesPage() {
       </section>
 
       <section className="py-16 sm:py-24">
-        <Container className="space-y-10">
-          {ACTIVITIES.map(({ icon: Icon, tag, title, description, points }, i) => (
-            <div
-              key={title}
-              className={`flex flex-col gap-8 rounded-3xl p-8 ring-1 sm:p-10 lg:flex-row lg:items-start ${
-                i % 2 === 0
-                  ? "bg-cream-50 ring-primary-100"
-                  : "bg-secondary-50 ring-secondary-100"
-              }`}
-            >
-              <span
-                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${
-                  i % 2 === 0
-                    ? "bg-primary-500 text-cream-50"
-                    : "bg-secondary-500 text-cream-50"
+        <Container className="grid gap-8 md:grid-cols-2">
+          {ACTIVITIES.map(({ icon: Icon, tag, title, description, points }, i) => {
+            const tone = i % 2 === 0 ? "primary" : "secondary";
+            return (
+              <div
+                key={title}
+                className={`flex flex-col overflow-hidden rounded-3xl ring-1 ${
+                  tone === "primary"
+                    ? "bg-cream-50 ring-primary-100"
+                    : "bg-secondary-50 ring-secondary-100"
                 }`}
               >
-                <Icon className="h-7 w-7" strokeWidth={2} />
-              </span>
-              <div className="flex-1">
-                <span
-                  className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${
-                    i % 2 === 0
-                      ? "bg-primary-100 text-primary-700"
-                      : "bg-secondary-100 text-secondary-700"
-                  }`}
-                >
-                  {tag}
-                </span>
-                <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-secondary-900">
-                  {title}
-                </h2>
-                <p className="mt-3 text-base leading-relaxed text-foreground/75">
-                  {description}
-                </p>
-                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-2 text-sm text-foreground/70"
+                <ActivityIllustration icon={Icon} tone={tone} className="rounded-none" />
+                <div className="flex-1 p-8 sm:p-10">
+                  <div className="flex items-start justify-between gap-4">
+                    <span
+                      className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${
+                        tone === "primary"
+                          ? "bg-primary-100 text-primary-700"
+                          : "bg-secondary-100 text-secondary-700"
+                      }`}
                     >
-                      <span
-                        className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${
-                          i % 2 === 0 ? "bg-primary-500" : "bg-secondary-500"
-                        }`}
+                      {tag}
+                    </span>
+                    {title === "Journées de l'excellence scolaire" && (
+                      <Image
+                        src="/badge-excellence-scolaire.png"
+                        alt="Badge AMIDEFEM — Pour l'excellence scolaire 2026"
+                        width={1329}
+                        height={1329}
+                        className="h-16 w-16 shrink-0"
                       />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                    )}
+                  </div>
+                  <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-secondary-900">
+                    {title}
+                  </h2>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/75">
+                    {description}
+                  </p>
+                  <ul className="mt-5 space-y-2">
+                    {points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-2 text-sm text-foreground/70"
+                      >
+                        <span
+                          className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${
+                            tone === "primary" ? "bg-primary-500" : "bg-secondary-500"
+                          }`}
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              {title === "Journées de l'excellence scolaire" && (
-                <Image
-                  src="/badge-excellence-scolaire.png"
-                  alt="Badge AMIDEFEM — Pour l'excellence scolaire 2026"
-                  width={1329}
-                  height={1329}
-                  className="mx-auto h-36 w-36 shrink-0 sm:h-44 sm:w-44 lg:mx-0"
-                />
-              )}
-            </div>
-          ))}
+            );
+          })}
         </Container>
       </section>
 

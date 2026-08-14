@@ -10,6 +10,8 @@ const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
   { href: "/activites", label: "Activités" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/actualites", label: "Actualités" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -31,14 +33,14 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-full px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                   active
                     ? "bg-primary-500 text-cream-50"
                     : "text-primary-900 hover:bg-primary-100"
@@ -50,7 +52,7 @@ export default function Header() {
           })}
           <Link
             href="/contact"
-            className="ml-2 rounded-full bg-secondary-500 px-4 py-2 text-sm font-semibold text-cream-50 transition-colors hover:bg-secondary-600"
+            className="ml-2 rounded-full bg-secondary-500 px-4 py-2 text-sm font-semibold whitespace-nowrap text-cream-50 transition-colors hover:bg-secondary-600"
           >
             Nous soutenir
           </Link>
@@ -58,7 +60,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-primary-700 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-primary-700 lg:hidden"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -68,7 +70,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-primary-100 bg-cream-50 px-4 pb-4 md:hidden">
+        <nav className="border-t border-primary-100 bg-cream-50 px-4 pb-4 lg:hidden">
           <ul className="flex flex-col gap-1 pt-2">
             {NAV_LINKS.map((link) => {
               const active = pathname === link.href;

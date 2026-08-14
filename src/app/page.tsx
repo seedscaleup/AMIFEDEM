@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
+import ActivityIllustration from "@/components/ActivityIllustration";
 
 const PILLARS = [
   {
@@ -44,13 +45,17 @@ const HIGHLIGHTS = [
     date: "8 Mars",
     title: "Journée internationale des droits des femmes",
     description:
-      "Chaque année, l'AMIDEFEM participe activement aux célébrations du 8 mars à Mengong : sensibilisation, mobilisation et mise en valeur des femmes de la communauté.",
+      "Chaque année, l'AMIDEFEM participe activement aux célébrations du 8 mars à Mengong.",
+    icon: CalendarDays,
+    tone: "primary" as const,
   },
   {
     date: "Rentrée scolaire",
     title: "Journées de l'excellence scolaire",
     description:
-      "Des journées dédiées à récompenser et encourager les meilleurs élèves de Mengong, pour soutenir l'éducation des jeunes filles et garçons de la localité.",
+      "Des journées dédiées à récompenser et encourager les meilleurs élèves de Mengong.",
+    icon: GraduationCap,
+    tone: "secondary" as const,
   },
 ];
 
@@ -83,10 +88,8 @@ export default function Home() {
             Mengong
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/75">
-            L&rsquo;AMIDEFEM — Amicale de Développement des Filles et Femmes
-            de Mengong — est une association dynamique qui favorise la
-            solidarité, l&rsquo;éducation et l&rsquo;entrepreneuriat des
-            femmes rurales dans la région du Sud du Cameroun.
+            Solidarité, éducation et entrepreneuriat des femmes rurales de
+            Mengong, région du Sud du Cameroun.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
@@ -101,6 +104,38 @@ export default function Home() {
               className="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-semibold text-secondary-900 ring-1 ring-secondary-200 transition-colors hover:bg-secondary-50"
             >
               Nous rejoindre
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="relative overflow-hidden rounded-3xl bg-primary-50 p-10 ring-1 ring-primary-100 sm:p-14">
+            <Image
+              src="/logo-embleme.png"
+              alt="Emblème AMIDEFEM"
+              width={1260}
+              height={1088}
+              className="mx-auto h-40 w-auto"
+            />
+          </div>
+          <div>
+            <SectionHeading eyebrow="Qui sommes-nous" title="Une amicale née à Mengong" />
+            <p className="mt-5 text-base leading-relaxed text-foreground/80">
+              L&rsquo;AMIDEFEM — Amicale de Développement des Filles et Femmes
+              de Mengong — est une association dynamique de la région du Sud
+              au Cameroun. Née de la volonté des femmes de Mengong de
+              s&rsquo;unir pour progresser ensemble, elle œuvre au quotidien
+              pour l&rsquo;autonomisation et le développement local des
+              femmes et des jeunes filles.
+            </p>
+            <Link
+              href="/a-propos"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-800"
+            >
+              En savoir plus sur l&rsquo;association
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </Container>
@@ -143,21 +178,24 @@ export default function Home() {
             description="De la mobilisation communautaire à l'encouragement scolaire, l'AMIDEFEM est présente sur le terrain toute l'année."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {HIGHLIGHTS.map(({ date, title, description }) => (
+            {HIGHLIGHTS.map(({ date, title, description, icon, tone }) => (
               <div
                 key={title}
-                className="flex flex-col rounded-2xl bg-cream-50 p-6 shadow-sm ring-1 ring-secondary-100 sm:p-8"
+                className="flex flex-col overflow-hidden rounded-2xl bg-cream-50 shadow-sm ring-1 ring-secondary-100"
               >
-                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-secondary-700">
-                  <CalendarDays className="h-3.5 w-3.5" />
-                  {date}
-                </span>
-                <h3 className="mt-4 font-[family-name:var(--font-heading)] text-xl font-bold text-secondary-900">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-                  {description}
-                </p>
+                <ActivityIllustration icon={icon} tone={tone} className="rounded-none" />
+                <div className="p-6 sm:p-8">
+                  <span className="inline-flex w-fit items-center gap-2 rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-secondary-700">
+                    <CalendarDays className="h-3.5 w-3.5" />
+                    {date}
+                  </span>
+                  <h3 className="mt-4 font-[family-name:var(--font-heading)] text-xl font-bold text-secondary-900">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/70">
+                    {description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
