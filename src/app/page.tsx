@@ -177,22 +177,60 @@ export default function Home() {
       </section>
 
       <section className="pb-20 sm:pb-28">
-        <Container className="flex flex-col items-center gap-6 rounded-3xl bg-secondary-900 px-6 py-14 text-center text-cream-50 sm:px-12">
-          <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-balance sm:text-4xl">
-            Envie de soutenir les femmes de Mengong ?
-          </h2>
-          <p className="max-w-xl text-cream-100/80">
-            Que vous souhaitiez rejoindre l&rsquo;association, proposer un
-            partenariat ou simplement en savoir plus, l&rsquo;équipe de
-            l&rsquo;AMIDEFEM est heureuse d&rsquo;échanger avec vous.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-cream-50 px-6 py-3 text-sm font-semibold text-secondary-900 transition-transform hover:scale-105"
-          >
-            Contactez-nous
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+        <Container className="rounded-3xl bg-secondary-900 px-6 py-14 text-cream-50 sm:px-12">
+          <div className="text-center">
+            <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-balance sm:text-4xl">
+              Vous pouvez contribuer à notre action
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-cream-100/80">
+              L&rsquo;AMIDEFEM avance grâce à celles et ceux qui s&rsquo;impliquent
+              à ses côtés. Trois façons simples de nous rejoindre.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <Link
+              href="/contact?sujet=Adhésion"
+              className="flex flex-col items-center gap-2 rounded-2xl bg-cream-50/10 px-6 py-6 text-center ring-1 ring-cream-50/15 transition-colors hover:bg-cream-50/15"
+            >
+              <span className="font-[family-name:var(--font-heading)] text-lg font-semibold">
+                Devenir membre
+              </span>
+              <span className="text-sm text-cream-100/75">
+                Rejoindre l&rsquo;amicale et participer à ses activités
+              </span>
+            </Link>
+            <Link
+              href="/contact?sujet=Partenariat"
+              className="flex flex-col items-center gap-2 rounded-2xl bg-cream-50/10 px-6 py-6 text-center ring-1 ring-cream-50/15 transition-colors hover:bg-cream-50/15"
+            >
+              <span className="font-[family-name:var(--font-heading)] text-lg font-semibold">
+                Devenir partenaire
+              </span>
+              <span className="text-sm text-cream-100/75">
+                Proposer un partenariat ou un appui à nos actions
+              </span>
+            </Link>
+            <Link
+              href="/contact?sujet=Soutien"
+              className="flex flex-col items-center gap-2 rounded-2xl bg-cream-50/10 px-6 py-6 text-center ring-1 ring-cream-50/15 transition-colors hover:bg-cream-50/15"
+            >
+              <span className="font-[family-name:var(--font-heading)] text-lg font-semibold">
+                Nous soutenir
+              </span>
+              <span className="text-sm text-cream-100/75">
+                Nous écrire pour toute autre forme de soutien
+              </span>
+            </Link>
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-cream-50 px-6 py-3 text-sm font-semibold text-secondary-900 transition-transform hover:scale-105"
+            >
+              Contactez-nous
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </Container>
       </section>
     </>

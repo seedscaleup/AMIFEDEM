@@ -1,12 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Send, CheckCircle2 } from "lucide-react";
 
 const CONTACT_EMAIL = "contact@amidefem.org";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
+  const searchParams = useSearchParams();
+  const defaultSubject = searchParams.get("sujet") ?? "";
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -66,6 +69,7 @@ export default function ContactForm() {
           id="subject"
           name="subject"
           type="text"
+          defaultValue={defaultSubject}
           placeholder="Objet de votre message"
           className="mt-1.5 w-full rounded-xl border border-primary-100 bg-cream-50 px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
         />

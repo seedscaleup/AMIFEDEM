@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { MapPin, Mail, Phone, Share2, Clock } from "lucide-react";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
@@ -67,7 +68,9 @@ export default function ContactPage() {
               de l&rsquo;AMIDEFEM.
             </p>
             <div className="mt-8">
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
 
