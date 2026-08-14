@@ -7,6 +7,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 
 export const metadata: Metadata = {
@@ -69,7 +70,7 @@ const ACTIVITIES = [
 export default function ActivitesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-primary-500 to-gold-500 py-16 text-cream-50 sm:py-20">
+      <section className="bg-gradient-to-br from-primary-500 to-secondary-800 py-16 text-cream-50 sm:py-20">
         <Container>
           <h1 className="max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance sm:text-5xl">
             Nos activités
@@ -134,6 +135,15 @@ export default function ActivitesPage() {
                   ))}
                 </ul>
               </div>
+              {title === "Journées de l'excellence scolaire" && (
+                <Image
+                  src="/badge-excellence-scolaire.png"
+                  alt="Badge AMIDEFEM — Pour l'excellence scolaire 2026"
+                  width={1329}
+                  height={1329}
+                  className="mx-auto h-36 w-36 shrink-0 sm:h-44 sm:w-44 lg:mx-0"
+                />
+              )}
             </div>
           ))}
         </Container>

@@ -162,7 +162,7 @@ export default function Home() {
 
       <section className="py-16 sm:py-24">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gold-400 to-primary-500 p-8 text-cream-50 sm:p-14">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-secondary-800 to-primary-600 p-8 text-cream-50 sm:p-14">
             <Quote className="h-10 w-10 text-cream-50/50" />
             <p className="mt-4 max-w-2xl font-[family-name:var(--font-heading)] text-2xl font-semibold leading-snug text-balance sm:text-3xl">
               &ldquo;Créer un cadre d&rsquo;entraide, de solidarité et de

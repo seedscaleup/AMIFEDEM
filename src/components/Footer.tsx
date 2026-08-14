@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { HeartHandshake, MapPin, Mail, Phone, Share2 } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Mail, Phone, Share2 } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,9 +10,13 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-bold text-cream-50">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500">
-              <HeartHandshake className="h-4.5 w-4.5" strokeWidth={2.25} />
-            </span>
+            <Image
+              src="/logo-embleme.png"
+              alt=""
+              width={1260}
+              height={1088}
+              className="h-10 w-auto"
+            />
             AMIDEFEM
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream-200/80">

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, HeartHandshake } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Accueil" },
@@ -19,20 +20,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-primary-100 bg-cream-50/90 backdrop-blur">
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-bold text-primary-700"
-          onClick={() => setOpen(false)}
-        >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-500 text-cream-50">
-            <HeartHandshake className="h-5 w-5" strokeWidth={2.25} />
-          </span>
-          <span className="leading-tight">
-            AMIDEFEM
-            <span className="block text-[0.65rem] font-medium tracking-wide text-secondary-600 uppercase">
-              Mengong · Sud Cameroun
-            </span>
-          </span>
+        <Link href="/" onClick={() => setOpen(false)} aria-label="AMIDEFEM — Accueil">
+          <Image
+            src="/logo-horizontal.png"
+            alt="AMIDEFEM — Amicale de Développement des Filles et Femmes de Mengong"
+            width={1600}
+            height={553}
+            priority
+            className="h-11 w-auto sm:h-12"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
