@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Mail, Phone, Share2 } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/social";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -75,11 +76,21 @@ export default function Footer() {
                 +237 6XX XXX XXX
               </a>
             </li>
-            <li className="flex items-center gap-2">
-              <Share2 className="h-4 w-4 shrink-0 text-primary-300" />
-              <span>AMIDEFEM Mengong</span>
-            </li>
           </ul>
+          <div className="mt-5 flex items-center gap-3">
+            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-cream-50/10 text-cream-100 transition-colors hover:bg-cream-50/20"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 

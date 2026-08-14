@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { MapPin, Mail, Phone, Share2, Clock } from "lucide-react";
+import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
+import { SOCIAL_LINKS } from "@/lib/social";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -27,11 +28,6 @@ const INFO = [
     label: "Téléphone",
     value: "+237 6XX XXX XXX",
     href: "tel:+237600000000",
-  },
-  {
-    icon: Share2,
-    label: "Réseaux sociaux",
-    value: "AMIDEFEM Mengong",
   },
   {
     icon: Clock,
@@ -103,6 +99,26 @@ export default function ContactPage() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6 border-t border-secondary-100 pt-6">
+                <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
+                  Réseaux sociaux
+                </p>
+                <div className="mt-3 flex items-center gap-3">
+                  {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-500 text-cream-50 transition-colors hover:bg-secondary-600"
+                    >
+                      <Icon className="h-5 w-5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </Container>
