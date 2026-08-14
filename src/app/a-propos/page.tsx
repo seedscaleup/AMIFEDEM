@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Users, Sparkles, GraduationCap, HandCoins, MapPin } from "lucide-react";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
@@ -47,16 +48,24 @@ const VALUES = [
 export default function AProposPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-secondary-700 to-secondary-900 py-16 text-cream-50 sm:py-20">
-        <Container>
-          <span className="inline-flex items-center gap-2 rounded-full bg-cream-50/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider ring-1 ring-cream-50/30">
+      <section className="relative overflow-hidden bg-cream-50 py-16 sm:py-20">
+        <Image
+          src="/logo-vertical.png"
+          alt=""
+          width={1400}
+          height={1144}
+          aria-hidden
+          className="pointer-events-none absolute -right-12 top-1/2 hidden h-[22rem] w-auto -translate-y-1/2 opacity-[0.06] lg:block"
+        />
+        <Container className="relative">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-700 ring-1 ring-primary-200">
             <MapPin className="h-3.5 w-3.5" />
             Mengong, Région du Sud, Cameroun
           </span>
-          <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance sm:text-5xl">
+          <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance text-secondary-900 sm:text-5xl">
             Qui sommes-nous ?
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-cream-100/85">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-foreground/75">
             L&rsquo;AMIDEFEM — Amicale de Développement des Filles et Femmes
             de Mengong — est une association dynamique située dans la région
             du Sud au Cameroun. Née de la volonté des femmes de Mengong de

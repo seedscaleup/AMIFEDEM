@@ -43,12 +43,12 @@ const INFO = [
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-secondary-700 to-secondary-900 py-16 text-cream-50 sm:py-20">
+      <section className="bg-cream-50 py-16 sm:py-20">
         <Container>
-          <h1 className="max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance sm:text-5xl">
+          <h1 className="max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance text-secondary-900 sm:text-5xl">
             Contactez-nous
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-cream-100/85">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-foreground/75">
             Une question, une envie de rejoindre l&rsquo;AMIDEFEM ou de
             soutenir nos actions ? Écrivez-nous, nous serons heureuses de
             vous répondre.

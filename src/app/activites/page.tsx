@@ -70,12 +70,15 @@ const ACTIVITIES = [
 export default function ActivitesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-primary-500 to-secondary-800 py-16 text-cream-50 sm:py-20">
+      <section className="bg-cream-50 py-16 sm:py-20">
         <Container>
-          <h1 className="max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance sm:text-5xl">
+          <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-700 ring-1 ring-primary-200">
+            Nos actions
+          </span>
+          <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold text-balance text-secondary-900 sm:text-5xl">
             Nos activités
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-cream-50/90">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-foreground/75">
             Des événements communautaires forts aux actions menées tout au
             long de l&rsquo;année, découvrez comment l&rsquo;AMIDEFEM agit
             concrètement auprès des femmes et des jeunes de Mengong.

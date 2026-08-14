@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Users,
   Sparkles,
@@ -56,20 +57,32 @@ const HIGHLIGHTS = [
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-700">
+      <section className="relative overflow-hidden bg-cream-50">
         <div
           aria-hidden
-          className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_20%_20%,white,transparent_35%),radial-gradient(circle_at_80%_0%,white,transparent_30%),radial-gradient(circle_at_50%_100%,white,transparent_40%)]"
+          className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary-100 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-secondary-100/70 blur-3xl"
+        />
+        <Image
+          src="/logo-embleme.png"
+          alt=""
+          width={1260}
+          height={1088}
+          aria-hidden
+          className="pointer-events-none absolute -right-16 top-1/2 hidden h-[26rem] w-auto -translate-y-1/2 opacity-[0.06] lg:block"
         />
         <Container className="relative py-20 sm:py-28">
-          <span className="inline-block rounded-full bg-cream-50/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-cream-50 ring-1 ring-cream-50/30">
+          <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-700 ring-1 ring-primary-200">
             Mengong · Région du Sud · Cameroun
           </span>
-          <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold leading-tight text-balance text-cream-50 sm:text-5xl">
+          <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold leading-tight text-balance text-secondary-900 sm:text-5xl">
             Ensemble, pour l&rsquo;autonomisation des femmes et des filles de
             Mengong
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream-50/90">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/75">
             L&rsquo;AMIDEFEM — Amicale de Développement des Filles et Femmes
             de Mengong — est une association dynamique qui favorise la
             solidarité, l&rsquo;éducation et l&rsquo;entrepreneuriat des
@@ -78,14 +91,14 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/a-propos"
-              className="inline-flex items-center gap-2 rounded-full bg-cream-50 px-6 py-3 text-sm font-semibold text-primary-700 shadow-lg shadow-primary-900/20 transition-transform hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-cream-50 shadow-sm transition-transform hover:scale-105 hover:bg-primary-600"
             >
               Découvrir l&rsquo;association
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-semibold text-cream-50 ring-1 ring-cream-50/60 transition-colors hover:bg-cream-50/10"
+              className="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-semibold text-secondary-900 ring-1 ring-secondary-200 transition-colors hover:bg-secondary-50"
             >
               Nous rejoindre
             </Link>
@@ -162,14 +175,22 @@ export default function Home() {
 
       <section className="py-16 sm:py-24">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-secondary-800 to-primary-600 p-8 text-cream-50 sm:p-14">
-            <Quote className="h-10 w-10 text-cream-50/50" />
-            <p className="mt-4 max-w-2xl font-[family-name:var(--font-heading)] text-2xl font-semibold leading-snug text-balance sm:text-3xl">
+          <div className="relative overflow-hidden rounded-3xl bg-secondary-50 p-8 ring-1 ring-secondary-100 sm:p-14">
+            <Image
+              src="/logo-embleme.png"
+              alt=""
+              width={1260}
+              height={1088}
+              aria-hidden
+              className="pointer-events-none absolute -right-10 -bottom-14 h-64 w-auto opacity-[0.07]"
+            />
+            <Quote className="h-10 w-10 text-primary-400" />
+            <p className="relative mt-4 max-w-2xl font-[family-name:var(--font-heading)] text-2xl font-semibold leading-snug text-balance text-secondary-900 sm:text-3xl">
               &ldquo;Créer un cadre d&rsquo;entraide, de solidarité et de
               partage d&rsquo;expériences entre les habitantes de
               Mengong.&rdquo;
             </p>
-            <p className="mt-4 text-sm font-medium uppercase tracking-wide text-cream-50/80">
+            <p className="relative mt-4 text-sm font-medium uppercase tracking-wide text-secondary-600">
               La raison d&rsquo;être de l&rsquo;AMIDEFEM
             </p>
           </div>
