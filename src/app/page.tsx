@@ -71,40 +71,46 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-secondary-100/70 blur-3xl"
         />
-        <Image
-          src="/logo-embleme.png"
-          alt=""
-          width={1260}
-          height={1088}
-          aria-hidden
-          className="pointer-events-none absolute -right-16 top-1/2 hidden h-[26rem] w-auto -translate-y-1/2 opacity-[0.06] lg:block"
-        />
-        <Container className="relative py-20 sm:py-28">
-          <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-700 ring-1 ring-primary-200">
-            Mengong · Région du Sud · Cameroun
-          </span>
-          <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-extrabold leading-tight text-balance text-secondary-900 sm:text-5xl">
-            Ensemble, pour l&rsquo;autonomisation des femmes et des filles de
-            Mengong
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/75">
-            Solidarité, éducation et entrepreneuriat des femmes rurales de
-            Mengong, région du Sud du Cameroun.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/a-propos"
-              className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-cream-50 shadow-sm transition-transform hover:scale-105 hover:bg-primary-600"
-            >
-              Découvrir l&rsquo;association
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-semibold text-secondary-900 ring-1 ring-secondary-200 transition-colors hover:bg-secondary-50"
-            >
-              Nous rejoindre
-            </Link>
+        <Container className="relative grid items-center gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:py-24">
+          <div>
+            <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-700 ring-1 ring-primary-200">
+              Mengong · Région du Sud · Cameroun
+            </span>
+            <h1 className="mt-6 font-[family-name:var(--font-heading)] text-4xl font-extrabold leading-tight text-balance text-secondary-900 sm:text-5xl">
+              Ensemble, pour l&rsquo;autonomisation des femmes et des filles
+              de Mengong
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/75">
+              Solidarité, éducation et entrepreneuriat des femmes rurales de
+              Mengong, région du Sud du Cameroun.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/a-propos"
+                className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-cream-50 shadow-sm transition-transform hover:scale-105 hover:bg-primary-600"
+              >
+                Découvrir l&rsquo;association
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-semibold text-secondary-900 ring-1 ring-secondary-200 transition-colors hover:bg-secondary-50"
+              >
+                Nous rejoindre
+              </Link>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="overflow-hidden rounded-3xl shadow-xl shadow-secondary-900/10">
+              <Image
+                src="/hero-women.jpg"
+                alt="Trois femmes de Mengong, de générations différentes, réunies dans leur village"
+                width={1402}
+                height={1122}
+                priority
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </Container>
       </section>
