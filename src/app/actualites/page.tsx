@@ -13,17 +13,19 @@ export const metadata: Metadata = {
 type NewsItem = {
   title: string;
   date: string;
+  location?: string;
   excerpt: string;
   image?: string;
 };
 
 const NEWS: NewsItem[] = [
   {
-    title: "Journée de la rentrée scolaire 2026 à Mengong",
-    date: "Août 2026",
+    title: "Cérémonie de l'excellence scolaire 2026 à Mengong",
+    date: "Samedi 29 août 2026",
+    location: "Esplanade de l'hôtel de ville de Mengong",
     image: "/actualite-rentree-2026.jpg",
     excerpt:
-      "L'AMIDEFEM a organisé une journée dédiée à la rentrée scolaire à Mengong : remise de kits scolaires aux enfants et récompense des lauréats du baccalauréat 2026. Article complet à venir.",
+      "L'AMIDEFEM a organisé sa cérémonie de l'excellence scolaire sur l'esplanade de l'hôtel de ville de Mengong. Réunissant membres, familles et autorités locales, cet événement a permis de distribuer des fournitures scolaires aux enfants des membres de l'association, et de récompenser les lauréats du baccalauréat 2026 de la localité — une nouvelle occasion pour l'AMIDEFEM de réaffirmer son engagement en faveur de l'éducation et de la réussite scolaire à Mengong.",
   },
 ];
 
@@ -69,34 +71,70 @@ export default function ActualitesPage() {
               </Link>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {NEWS.map((item) => (
-                <article
-                  key={item.title}
-                  className="overflow-hidden rounded-2xl bg-cream-50 shadow-sm ring-1 ring-secondary-100"
-                >
-                  {item.image && (
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={1800}
-                      height={1200}
-                      className="h-44 w-full object-cover"
-                    />
-                  )}
-                  <div className="p-6">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
-                      {item.date}
-                    </p>
-                    <h3 className="mt-2 font-[family-name:var(--font-heading)] text-lg font-bold text-secondary-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-                      {item.excerpt}
-                    </p>
+            <div className="space-y-6">
+              <article className="overflow-hidden rounded-3xl bg-cream-50 shadow-sm ring-1 ring-secondary-100 lg:grid lg:grid-cols-2">
+                {NEWS[0].image && (
+                  <Image
+                    src={NEWS[0].image}
+                    alt={NEWS[0].title}
+                    width={1800}
+                    height={1200}
+                    priority
+                    className="h-64 w-full object-cover lg:h-full"
+                  />
+                )}
+                <div className="p-8 sm:p-10">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-wide text-secondary-600">
+                    <span>{NEWS[0].date}</span>
+                    {NEWS[0].location && (
+                      <>
+                        <span aria-hidden className="text-secondary-300">
+                          ·
+                        </span>
+                        <span>{NEWS[0].location}</span>
+                      </>
+                    )}
                   </div>
-                </article>
-              ))}
+                  <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-secondary-900">
+                    {NEWS[0].title}
+                  </h2>
+                  <p className="mt-4 text-base leading-relaxed text-foreground/75">
+                    {NEWS[0].excerpt}
+                  </p>
+                </div>
+              </article>
+
+              {NEWS.length > 1 && (
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {NEWS.slice(1).map((item) => (
+                    <article
+                      key={item.title}
+                      className="overflow-hidden rounded-2xl bg-cream-50 shadow-sm ring-1 ring-secondary-100"
+                    >
+                      {item.image && (
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          width={1800}
+                          height={1200}
+                          className="h-44 w-full object-cover"
+                        />
+                      )}
+                      <div className="p-6">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
+                          {item.date}
+                        </p>
+                        <h3 className="mt-2 font-[family-name:var(--font-heading)] text-lg font-bold text-secondary-900">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-foreground/70">
+                          {item.excerpt}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </Container>
