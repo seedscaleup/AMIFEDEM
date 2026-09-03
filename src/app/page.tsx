@@ -104,10 +104,10 @@ export default function Home() {
           <div className="relative">
             <div className="overflow-hidden rounded-3xl shadow-xl shadow-secondary-900/10">
               <Image
-                src="/hero-women.jpg"
-                alt="Une membre de l'AMIDEFEM remet des kits scolaires lors de la journée de la rentrée scolaire à Mengong"
+                src="/presidente-article.jpg"
+                alt="Madame EBA Jeanine épouse NGO'O, Présidente de l'AMIDEFEM, s'exprimant lors de la cérémonie de l'excellence scolaire 2026 à Mengong"
                 width={1800}
-                height={1200}
+                height={1623}
                 priority
                 className="h-full w-full object-cover"
               />

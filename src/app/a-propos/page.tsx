@@ -77,6 +77,38 @@ export default function AProposPage() {
       </section>
 
       <section className="py-16 sm:py-24">
+        <Container className="grid gap-10 lg:grid-cols-5 lg:items-center">
+          <div className="lg:col-span-2">
+            <div className="overflow-hidden rounded-3xl shadow-sm ring-1 ring-primary-100">
+              <Image
+                src="/presidente-portrait.jpg"
+                alt="Madame EBA Jeanine épouse NGO'O, Présidente de l'AMIDEFEM"
+                width={1200}
+                height={2000}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-3">
+            <SectionHeading eyebrow="Notre présidente" title="Madame EBA Jeanine épouse NGO'O" />
+            <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-primary-700">
+              Présidente de l&rsquo;AMIDEFEM
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-foreground/80">
+              Madame EBA Jeanine épouse NGO&rsquo;O préside l&rsquo;AMIDEFEM et
+              porte la voix de l&rsquo;association lors de ses grands
+              rendez-vous avec la communauté de Mengong — comme la cérémonie
+              de l&rsquo;excellence scolaire 2026, organisée sur
+              l&rsquo;esplanade de l&rsquo;hôtel de ville. Sous son
+              impulsion, l&rsquo;AMIDEFEM continue de fédérer les femmes et
+              les filles de Mengong autour de la solidarité, de
+              l&rsquo;éducation et de l&rsquo;entrepreneuriat rural.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-24">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading

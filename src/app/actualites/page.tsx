@@ -23,9 +23,9 @@ const NEWS: NewsItem[] = [
     title: "Cérémonie de l'excellence scolaire 2026 à Mengong",
     date: "Samedi 29 août 2026",
     location: "Esplanade de l'hôtel de ville de Mengong",
-    image: "/actualite-rentree-2026.jpg",
+    image: "/presidente-article.jpg",
     excerpt:
-      "L'AMIDEFEM a organisé sa cérémonie de l'excellence scolaire sur l'esplanade de l'hôtel de ville de Mengong. Réunissant membres, familles et autorités locales, cet événement a permis de distribuer des fournitures scolaires aux enfants des membres de l'association, et de récompenser les lauréats du baccalauréat 2026 de la localité — une nouvelle occasion pour l'AMIDEFEM de réaffirmer son engagement en faveur de l'éducation et de la réussite scolaire à Mengong.",
+      "Sous la présidence de Madame EBA Jeanine épouse NGO'O, Présidente de l'AMIDEFEM, l'association a organisé sa cérémonie de l'excellence scolaire sur l'esplanade de l'hôtel de ville de Mengong. Réunissant membres, familles et autorités locales, cet événement a permis de distribuer des fournitures scolaires aux enfants des membres de l'association, et de récompenser les lauréats du baccalauréat 2026 de la localité — une nouvelle occasion pour l'AMIDEFEM de réaffirmer son engagement en faveur de l'éducation et de la réussite scolaire à Mengong.",
   },
 ];
 
@@ -73,16 +73,22 @@ export default function ActualitesPage() {
           ) : (
             <div className="space-y-6">
               <article className="overflow-hidden rounded-3xl bg-cream-50 shadow-sm ring-1 ring-secondary-100 lg:grid lg:grid-cols-2">
-                {NEWS[0].image && (
-                  <Image
-                    src={NEWS[0].image}
-                    alt={NEWS[0].title}
-                    width={1800}
-                    height={1200}
-                    priority
-                    className="h-64 w-full object-cover lg:h-full"
-                  />
-                )}
+                <div className="relative">
+                  {NEWS[0].image && (
+                    <Image
+                      src={NEWS[0].image}
+                      alt="Madame EBA Jeanine épouse NGO'O, Présidente de l'AMIDEFEM, s'exprimant au micro lors de la cérémonie de l'excellence scolaire 2026"
+                      width={1800}
+                      height={1623}
+                      priority
+                      className="h-64 w-full object-cover lg:h-full"
+                    />
+                  )}
+                  <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-xs font-medium text-cream-50">
+                    Madame EBA Jeanine épouse NGO&rsquo;O, Présidente de
+                    l&rsquo;AMIDEFEM
+                  </p>
+                </div>
                 <div className="p-8 sm:p-10">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-wide text-secondary-600">
                     <span>{NEWS[0].date}</span>
