@@ -32,6 +32,7 @@ const ACTIVITIES = [
   },
   {
     icon: GraduationCap,
+    image: "/activite-excellence-scolaire.jpg",
     tag: "Événement annuel · Rentrée scolaire",
     title: "Journées de l'excellence scolaire",
     description:
@@ -57,6 +58,7 @@ const ACTIVITIES = [
   },
   {
     icon: Sprout,
+    image: "/activite-agr.jpg",
     tag: "Toute l'année",
     title: "Activités génératrices de revenus",
     description:
@@ -105,8 +107,8 @@ export default function ActivitesPage() {
                   <Image
                     src={image}
                     alt={title}
-                    width={1402}
-                    height={1122}
+                    width={1800}
+                    height={1200}
                     className="h-40 w-full object-cover"
                   />
                 ) : (

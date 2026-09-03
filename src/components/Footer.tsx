@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/social";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from "@/lib/contact";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -76,14 +77,14 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-primary-300" />
-              <a href="mailto:contact@amidefem.org" className="hover:text-cream-50">
-                contact@amidefem.org
+              <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-cream-50">
+                {CONTACT_EMAIL}
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 shrink-0 text-primary-300" />
-              <a href="tel:+237600000000" className="hover:text-cream-50">
-                +237 6XX XXX XXX
+              <a href={`tel:${CONTACT_PHONE_TEL}`} className="hover:text-cream-50">
+                {CONTACT_PHONE_DISPLAY}
               </a>
             </li>
           </ul>

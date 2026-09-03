@@ -56,6 +56,7 @@ const HIGHLIGHTS = [
       "Des journées dédiées à récompenser et encourager les meilleurs élèves de Mengong.",
     icon: GraduationCap,
     tone: "secondary" as const,
+    image: "/activite-excellence-scolaire.jpg",
   },
 ];
 
@@ -104,9 +105,9 @@ export default function Home() {
             <div className="overflow-hidden rounded-3xl shadow-xl shadow-secondary-900/10">
               <Image
                 src="/hero-women.jpg"
-                alt="Trois femmes de Mengong, de générations différentes, réunies dans leur village"
-                width={1402}
-                height={1122}
+                alt="Une membre de l'AMIDEFEM remet des kits scolaires lors de la journée de la rentrée scolaire à Mengong"
+                width={1800}
+                height={1200}
                 priority
                 className="h-full w-full object-cover"
               />
@@ -117,13 +118,13 @@ export default function Home() {
 
       <section className="py-16 sm:py-20">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div className="relative overflow-hidden rounded-3xl bg-primary-50 p-10 ring-1 ring-primary-100 sm:p-14">
+          <div className="overflow-hidden rounded-3xl shadow-sm ring-1 ring-primary-100">
             <Image
-              src="/logo-embleme.png"
-              alt="Emblème AMIDEFEM"
-              width={1260}
-              height={1088}
-              className="mx-auto h-40 w-auto"
+              src="/qui-sommes-nous.jpg"
+              alt="Deux membres de l'AMIDEFEM devant le kakémono de l'association, lors de la journée de la rentrée scolaire à Mengong"
+              width={1800}
+              height={1200}
+              className="h-full w-full object-cover"
             />
           </div>
           <div>
@@ -184,12 +185,22 @@ export default function Home() {
             description="De la mobilisation communautaire à l'encouragement scolaire, l'AMIDEFEM est présente sur le terrain toute l'année."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {HIGHLIGHTS.map(({ date, title, description, icon, tone }) => (
+            {HIGHLIGHTS.map(({ date, title, description, icon, tone, image }) => (
               <div
                 key={title}
                 className="flex flex-col overflow-hidden rounded-2xl bg-cream-50 shadow-sm ring-1 ring-secondary-100"
               >
-                <ActivityIllustration icon={icon} tone={tone} className="rounded-none" />
+                {image ? (
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={1800}
+                    height={1200}
+                    className="h-40 w-full object-cover"
+                  />
+                ) : (
+                  <ActivityIllustration icon={icon} tone={tone} className="rounded-none" />
+                )}
                 <div className="p-6 sm:p-8">
                   <span className="inline-flex w-fit items-center gap-2 rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-secondary-700">
                     <CalendarDays className="h-3.5 w-3.5" />

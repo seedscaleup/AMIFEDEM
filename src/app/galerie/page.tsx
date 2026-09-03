@@ -20,21 +20,48 @@ export const metadata: Metadata = {
 
 const TILES = [
   { icon: CalendarDays, tone: "primary" as const, caption: "8 mars — Droits des femmes" },
-  { icon: GraduationCap, tone: "secondary" as const, caption: "Excellence scolaire" },
+  {
+    icon: GraduationCap,
+    tone: "secondary" as const,
+    caption: "Remise des prix aux lauréats",
+    image: "/galerie-laureats.jpg",
+  },
   {
     icon: Users2,
     tone: "gold" as const,
     caption: "Entraide et solidarité",
     image: "/activite-entraide.jpg",
   },
-  { icon: Sprout, tone: "primary" as const, caption: "Activités génératrices de revenus" },
+  {
+    icon: Sprout,
+    tone: "primary" as const,
+    caption: "Activités génératrices de revenus",
+    image: "/activite-agr.jpg",
+  },
   {
     icon: HeartHandshake,
     tone: "secondary" as const,
-    caption: "Vie associative",
-    image: "/hero-women.jpg",
+    caption: "Le bureau de l'association",
+    image: "/galerie-bureau.jpg",
   },
-  { icon: Sparkles, tone: "gold" as const, caption: "Autonomisation des femmes" },
+  {
+    icon: Sparkles,
+    tone: "gold" as const,
+    caption: "Autonomisation des femmes",
+    image: "/galerie-celebration.jpg",
+  },
+  {
+    icon: HeartHandshake,
+    tone: "primary" as const,
+    caption: "Discours d'ouverture",
+    image: "/galerie-discours.jpg",
+  },
+  {
+    icon: Sparkles,
+    tone: "secondary" as const,
+    caption: "Mobilisation communautaire",
+    image: "/galerie-foule.jpg",
+  },
 ];
 
 export default function GaleriePage() {
@@ -60,9 +87,9 @@ export default function GaleriePage() {
           <div className="mb-8 flex items-start gap-3 rounded-2xl bg-gold-50 p-4 ring-1 ring-gold-200 sm:p-5">
             <Camera className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" />
             <p className="text-sm leading-relaxed text-foreground/75">
-              Cette galerie s&rsquo;enrichit progressivement de vraies photos
-              de nos activités. Les cases restantes seront bientôt
-              illustrées à leur tour.
+              Photos de la journée de la rentrée scolaire 2026 à Mengong, et
+              de nos autres domaines d&rsquo;action. Cette galerie
+              s&rsquo;enrichira au fil de nos prochains événements.
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -75,8 +102,8 @@ export default function GaleriePage() {
                   <Image
                     src={image}
                     alt={caption}
-                    width={1402}
-                    height={1122}
+                    width={1800}
+                    height={1200}
                     className="h-48 w-full object-cover"
                   />
                 ) : (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Newspaper, ArrowRight } from "lucide-react";
 import Container from "@/components/Container";
 
@@ -13,9 +14,18 @@ type NewsItem = {
   title: string;
   date: string;
   excerpt: string;
+  image?: string;
 };
 
-const NEWS: NewsItem[] = [];
+const NEWS: NewsItem[] = [
+  {
+    title: "Journée de la rentrée scolaire 2026 à Mengong",
+    date: "Août 2026",
+    image: "/actualite-rentree-2026.jpg",
+    excerpt:
+      "L'AMIDEFEM a organisé une journée dédiée à la rentrée scolaire à Mengong : remise de kits scolaires aux enfants et récompense des lauréats du baccalauréat 2026. Article complet à venir.",
+  },
+];
 
 export default function ActualitesPage() {
   return (
@@ -63,17 +73,28 @@ export default function ActualitesPage() {
               {NEWS.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-2xl bg-cream-50 p-6 shadow-sm ring-1 ring-secondary-100"
+                  className="overflow-hidden rounded-2xl bg-cream-50 shadow-sm ring-1 ring-secondary-100"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
-                    {item.date}
-                  </p>
-                  <h3 className="mt-2 font-[family-name:var(--font-heading)] text-lg font-bold text-secondary-900">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-                    {item.excerpt}
-                  </p>
+                  {item.image && (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={1800}
+                      height={1200}
+                      className="h-44 w-full object-cover"
+                    />
+                  )}
+                  <div className="p-6">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
+                      {item.date}
+                    </p>
+                    <h3 className="mt-2 font-[family-name:var(--font-heading)] text-lg font-bold text-secondary-900">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/70">
+                      {item.excerpt}
+                    </p>
+                  </div>
                 </article>
               ))}
             </div>

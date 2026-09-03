@@ -3,8 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Send, CheckCircle2 } from "lucide-react";
-
-const CONTACT_EMAIL = "contact@amidefem.org";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);

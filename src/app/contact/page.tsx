@@ -4,6 +4,7 @@ import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
 import { SOCIAL_LINKS } from "@/lib/social";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,14 +21,14 @@ const INFO = [
   {
     icon: Mail,
     label: "E-mail",
-    value: "contact@amidefem.org",
-    href: "mailto:contact@amidefem.org",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
   },
   {
     icon: Phone,
-    label: "Téléphone",
-    value: "+237 6XX XXX XXX",
-    href: "tel:+237600000000",
+    label: "WhatsApp / Téléphone",
+    value: CONTACT_PHONE_DISPLAY,
+    href: `tel:${CONTACT_PHONE_TEL}`,
   },
   {
     icon: Clock,
