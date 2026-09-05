@@ -6,7 +6,6 @@ import {
   Sprout,
   HeartHandshake,
   Sparkles,
-  Camera,
 } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -84,14 +83,6 @@ export default function GaleriePage() {
 
       <section className="pb-20 sm:pb-28">
         <Container>
-          <div className="mb-8 flex items-start gap-3 rounded-2xl bg-gold-50 p-4 ring-1 ring-gold-200 sm:p-5">
-            <Camera className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" />
-            <p className="text-sm leading-relaxed text-foreground/75">
-              Photos de la journée de la rentrée scolaire 2026 à Mengong, et
-              de nos autres domaines d&rsquo;action. Cette galerie
-              s&rsquo;enrichira au fil de nos prochains événements.
-            </p>
-          </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {TILES.map(({ icon, tone, caption, image }, i) => (
               <figure
