@@ -41,7 +41,7 @@ const TILES = [
   {
     icon: HeartHandshake,
     tone: "secondary" as const,
-    caption: "Le bureau de l'association",
+    caption: "Les invités d'honneur",
     image: "/galerie-bureau.jpg",
   },
   {
@@ -53,7 +53,7 @@ const TILES = [
   {
     icon: HeartHandshake,
     tone: "primary" as const,
-    caption: "Discours d'ouverture",
+    caption: "Remise des prix aux lauréats et aux membres",
     image: "/galerie-discours.jpg",
   },
   {
