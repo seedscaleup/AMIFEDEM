@@ -148,6 +148,34 @@ export default function Home() {
         </Container>
       </section>
 
+      <section className="py-16 sm:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Notre impact"
+            title="Des actions qui changent des vies à Mengong"
+            align="center"
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:max-w-2xl sm:mx-auto">
+            <div className="rounded-2xl bg-primary-50 p-8 text-center ring-1 ring-primary-100">
+              <p className="font-[family-name:var(--font-heading)] text-4xl font-extrabold text-primary-700 sm:text-5xl">
+                +1 000
+              </p>
+              <p className="mt-2 text-sm font-medium text-foreground/70">
+                Femmes accompagnées par l&rsquo;AMIDEFEM
+              </p>
+            </div>
+            <div className="rounded-2xl bg-secondary-50 p-8 text-center ring-1 ring-secondary-100">
+              <p className="font-[family-name:var(--font-heading)] text-4xl font-extrabold text-secondary-700 sm:text-5xl">
+                +70 M
+              </p>
+              <p className="mt-2 text-sm font-medium text-foreground/70">
+                FCFA de financements déjà octroyés par l&rsquo;association
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading
