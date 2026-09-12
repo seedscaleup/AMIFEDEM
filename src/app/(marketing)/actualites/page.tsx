@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
 import { Newspaper, ArrowRight } from "lucide-react";
 import Container from "@/components/Container";
-import { listNews } from "@/lib/db";
+import { getActualites, urlForImage } from "@/sanity/client";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,13 @@ export const metadata: Metadata = {
 };
 
 export default async function ActualitesPage() {
-  const news = await listNews();
+  let news: Awaited<ReturnType<typeof getActualites>> = [];
+  try {
+    news = await getActualites();
+  } catch {
+    // Sanity pas encore configuré (variables d'environnement manquantes ou
+    // dataset introuvable) — on affiche l'état vide plutôt que de casser la page.
+  }
 
   return (
     <>
@@ -58,24 +65,28 @@ export default async function ActualitesPage() {
           ) : (
             <div className="space-y-6">
               <article className="overflow-hidden rounded-3xl bg-cream-50 shadow-sm ring-1 ring-secondary-100 lg:grid lg:grid-cols-2">
-                {news[0].has_image && (
+                {news[0].image && (
                   <div className="relative">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={`/api/news-image/${news[0].id}`}
-                      alt={news[0].photo_caption || news[0].title}
+                      src={urlForImage(news[0].image)
+                        .width(1800)
+                        .height(1200)
+                        .fit("crop")
+                        .url()}
+                      alt={news[0].photoCaption || news[0].title}
                       className="h-64 w-full object-cover lg:h-full"
                     />
-                    {news[0].photo_caption && (
+                    {news[0].photoCaption && (
                       <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-xs font-medium text-cream-50">
-                        {news[0].photo_caption}
+                        {news[0].photoCaption}
                       </p>
                     )}
                   </div>
                 )}
                 <div className="p-8 sm:p-10">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-wide text-secondary-600">
-                    <span>{news[0].event_date}</span>
+                    <span>{news[0].eventDate}</span>
                     {news[0].location && (
                       <>
                         <span aria-hidden className="text-secondary-300">
@@ -88,9 +99,9 @@ export default async function ActualitesPage() {
                   <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-secondary-900">
                     {news[0].title}
                   </h2>
-                  <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-foreground/75">
-                    {news[0].excerpt}
-                  </p>
+                  <div className="prose prose-sm mt-4 max-w-none text-base leading-relaxed text-foreground/75">
+                    <PortableText value={news[0].body} />
+                  </div>
                 </div>
               </article>
 
@@ -98,27 +109,31 @@ export default async function ActualitesPage() {
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {news.slice(1).map((item) => (
                     <article
-                      key={item.id}
+                      key={item._id}
                       className="overflow-hidden rounded-2xl bg-cream-50 shadow-sm ring-1 ring-secondary-100"
                     >
-                      {item.has_image && (
+                      {item.image && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={`/api/news-image/${item.id}`}
-                          alt={item.photo_caption || item.title}
+                          src={urlForImage(item.image)
+                            .width(1200)
+                            .height(800)
+                            .fit("crop")
+                            .url()}
+                          alt={item.photoCaption || item.title}
                           className="h-44 w-full object-cover"
                         />
                       )}
                       <div className="p-6">
                         <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
-                          {item.event_date}
+                          {item.eventDate}
                         </p>
                         <h3 className="mt-2 font-[family-name:var(--font-heading)] text-lg font-bold text-secondary-900">
                           {item.title}
                         </h3>
-                        <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-foreground/70">
-                          {item.excerpt}
-                        </p>
+                        <div className="prose prose-sm mt-2 max-w-none text-sm leading-relaxed text-foreground/70">
+                          <PortableText value={item.body} />
+                        </div>
                       </div>
                     </article>
                   ))}

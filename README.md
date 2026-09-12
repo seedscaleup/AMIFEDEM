@@ -6,7 +6,7 @@ du Cameroun, qui favorise l'autonomisation et le développement local des
 femmes.
 
 Construit avec [Next.js](https://nextjs.org) (App Router), [Tailwind
-CSS](https://tailwindcss.com) et une base de données Postgres pour les
+CSS](https://tailwindcss.com) et [Sanity](https://www.sanity.io) pour les
 actualités.
 
 ## Démarrer en local
@@ -18,8 +18,9 @@ npm run dev
 
 Ouvrir [http://localhost:3000](http://localhost:3000). Pour que la page
 Actualités et l'espace de publication fonctionnent en local, il faut aussi
-une base Postgres et un fichier `.env.local` — voir la section
-[Variables d'environnement](#variables-denvironnement) ci-dessous.
+un projet Sanity et un fichier `.env.local` — voir la section
+[Variables d'environnement](#variables-denvironnement) ci-dessous. Sans
+cela, la page Actualités s'affiche simplement avec son état vide.
 
 ## Pages
 
@@ -27,53 +28,53 @@ une base Postgres et un fichier `.env.local` — voir la section
 - `/a-propos` — À propos de l'association
 - `/activites` — Activités (8 mars, journées de l'excellence scolaire, entraide, AGR)
 - `/galerie` — Galerie photos
-- `/actualites` — Actualités (alimentées depuis la base de données)
+- `/actualites` — Actualités (alimentées depuis Sanity)
 - `/contact` — Contact
-- `/admin` — **Espace de publication des actualités**, protégé par mot de passe
+- `/studio` — **Espace de publication des actualités** (Sanity Studio)
 
-## Espace de publication des actualités (`/admin`)
+## Espace de publication des actualités (`/studio`)
 
-L'équipe de l'AMIDEFEM peut publier, consulter et supprimer des actualités
-sans intervention technique, via `https://<votre-domaine>/admin` :
+L'équipe de l'AMIDEFEM publie, modifie et supprime des actualités depuis
+`https://<votre-domaine>/studio` :
 
-1. Se connecter avec le mot de passe partagé (variable `ADMIN_PASSWORD`)
-2. Remplir le formulaire : titre, date, lieu, texte, photo et légende (tous
-   facultatifs sauf titre, date et texte)
-3. Cliquer sur **Publier** — l'actualité apparaît immédiatement sur
-   `/actualites`
-4. Supprimer une actualité existante avec l'icône de corbeille
-
-Les actualités et leurs photos sont stockées dans la base Postgres — aucun
-redéploiement n'est nécessaire pour publier.
+1. Se connecter avec un compte Sanity (Google, GitHub ou e-mail — géré par
+   Sanity, à créer une fois pour chaque personne qui doit publier)
+2. Cliquer sur **Actualité** puis **+ Create**
+3. Remplir titre, date, lieu, photo, légende et le texte (éditeur de texte
+   riche : gras, listes, etc.)
+4. Cliquer sur **Publish** — l'actualité apparaît immédiatement sur
+   `/actualites`, sans redéploiement
 
 ## Variables d'environnement
 
-Trois variables sont nécessaires (à ajouter dans **Vercel → Project
+Deux variables sont nécessaires (à ajouter dans **Vercel → Project
 Settings → Environment Variables**, ou dans un fichier `.env.local` en
 local) :
 
 | Variable | Rôle |
 |---|---|
-| `DATABASE_URL` | Chaîne de connexion vers la base Postgres |
-| `ADMIN_PASSWORD` | Mot de passe partagé pour accéder à `/admin` |
-| `SESSION_SECRET` | Chaîne aléatoire longue, utilisée pour sécuriser la session de connexion |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Identifiant du projet Sanity |
+| `NEXT_PUBLIC_SANITY_DATASET` | Nom du dataset Sanity (`production` par défaut) |
 
-### Créer la base Postgres sur Vercel
+### Créer le projet Sanity
 
-1. Dans le projet Vercel, onglet **Storage** → **Create Database**
-2. Choisir **Postgres** (propulsé par Neon) et suivre les étapes — le plan
-   gratuit suffit largement pour ce site
-3. Une fois créée, Vercel ajoute automatiquement la variable `DATABASE_URL`
-   (ou une variable similaire — dans ce cas, la renommer/dupliquer en
-   `DATABASE_URL` dans Project Settings → Environment Variables)
-4. Ajouter aussi `ADMIN_PASSWORD` (choisissez un mot de passe) et
-   `SESSION_SECRET` (une longue chaîne aléatoire, par exemple générée avec
-   `openssl rand -hex 32`)
-5. Redéployer (Deployments → dernier déploiement → **Redeploy**) pour que
-   les nouvelles variables soient prises en compte
+1. Aller sur [sanity.io/manage](https://www.sanity.io/manage) et créer un
+   compte gratuit si besoin
+2. **Create project** — donnez-lui un nom (ex. "AMIDEFEM"), le dataset
+   `production` est créé automatiquement, réglé en **Public** (les
+   actualités sont de toute façon publiques sur le site)
+3. Copier le **Project ID** affiché dans les paramètres du projet
+4. Dans Vercel, ajouter `NEXT_PUBLIC_SANITY_PROJECT_ID` (l'identifiant
+   copié) et `NEXT_PUBLIC_SANITY_DATASET` (`production`)
+5. Dans **API → CORS origins** du projet Sanity, ajouter l'URL de votre
+   site (ex. `https://amifedem.vercel.app`) pour autoriser `/studio` à s'y
+   connecter
+6. Redéployer (Deployments → dernier déploiement → **Redeploy**)
+7. Ouvrir `/studio` sur le site déployé, se connecter, et ajouter les
+   personnes de l'équipe qui doivent publier (Sanity → project → **Members**)
 
-La table de base de données et l'actualité déjà publiée sur le site sont
-créées automatiquement au premier accès — aucune commande manuelle requise.
+Aucune commande ni migration manuelle n'est nécessaire : le schéma
+"Actualité" est déjà défini dans le code (`src/sanity/schemaTypes`).
 
 ## À personnaliser
 
