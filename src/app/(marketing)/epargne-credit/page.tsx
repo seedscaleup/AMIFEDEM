@@ -5,7 +5,7 @@ import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Prêts",
+  title: "Épargne & Crédit",
   description:
     "Le programme épargne & crédit de l'AMIDEFEM : les membres épargnent, l'association complète leur épargne pour soutenir leurs projets à Mengong.",
 };
@@ -31,7 +31,7 @@ const STEPS = [
   },
 ];
 
-export default function PretsPage() {
+export default function EpargneCreditPage() {
   return (
     <>
       <section className="bg-cream-50 py-16 sm:py-20">

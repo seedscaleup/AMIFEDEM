@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
   { href: "/activites", label: "Activités" },
-  { href: "/prets", label: "Épargne & Crédit" },
+  { href: "/epargne-credit", label: "Épargne & Crédit" },
   { href: "/galerie", label: "Galerie" },
   { href: "/actualites", label: "Actualités" },
   { href: "/contact", label: "Contact" },

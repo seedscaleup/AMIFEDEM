@@ -49,7 +49,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/prets" className="text-cream-200/80 hover:text-cream-50">
+              <Link href="/epargne-credit" className="text-cream-200/80 hover:text-cream-50">
                 Épargne &amp; Crédit
               </Link>
             </li>
