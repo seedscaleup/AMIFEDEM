@@ -5,6 +5,8 @@ import {
   Sparkles,
   GraduationCap,
   HandCoins,
+  PiggyBank,
+  TrendingUp,
   ArrowRight,
   CalendarDays,
   Quote,
@@ -38,6 +40,12 @@ const PILLARS = [
     description:
       "L'encouragement des activités génératrices de revenus pour les femmes rurales.",
   },
+];
+
+const EPARGNE_STEPS = [
+  { icon: PiggyBank, label: "Vous épargnez" },
+  { icon: HandCoins, label: "L'AMIDEFEM complète votre épargne" },
+  { icon: TrendingUp, label: "Vous développez votre projet" },
 ];
 
 const HIGHLIGHTS = [
@@ -172,6 +180,51 @@ export default function Home() {
                 FCFA de financements déjà octroyés par l&rsquo;association
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-24">
+        <Container className="grid gap-10 overflow-hidden rounded-3xl bg-secondary-900 p-8 text-cream-50 sm:p-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <span className="inline-block rounded-full bg-cream-50/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-300 ring-1 ring-cream-50/15">
+              Notre principale action
+            </span>
+            <h2 className="mt-5 font-[family-name:var(--font-heading)] text-2xl font-bold text-balance sm:text-3xl">
+              Épargne &amp; Crédit : vous épargnez, l&rsquo;AMIDEFEM double
+              votre épargne
+            </h2>
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-cream-100/80 sm:text-base">
+              C&rsquo;est le cœur de l&rsquo;action de l&rsquo;AMIDEFEM auprès de
+              ses membres : une épargne régulière, renforcée par
+              l&rsquo;association, pour soutenir leurs projets et leurs
+              activités génératrices de revenus à Mengong.
+            </p>
+            <Link
+              href="/epargne-credit"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-cream-50 shadow-sm transition-transform hover:scale-105 hover:bg-primary-600"
+            >
+              Voir plus
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3 lg:gap-3">
+            {EPARGNE_STEPS.map(({ icon: Icon, label }, i) => (
+              <div
+                key={label}
+                className="rounded-2xl bg-cream-50/10 p-5 ring-1 ring-cream-50/15"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-300/20 text-gold-300">
+                  <Icon className="h-5 w-5" strokeWidth={2} />
+                </span>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-cream-100/60">
+                  Étape {i + 1}
+                </p>
+                <p className="mt-1 text-sm font-semibold leading-snug text-cream-50">
+                  {label}
+                </p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
