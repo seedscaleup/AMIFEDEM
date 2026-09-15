@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { Newspaper, ArrowRight } from "lucide-react";
 import Container from "@/components/Container";
-import { getActualites, urlForImage } from "@/sanity/client";
+import { getActualites, coverImageUrl } from "@/sanity/client";
 
 export const dynamic = "force-dynamic";
 
@@ -69,11 +69,7 @@ export default async function ActualitesPage() {
                   <div className="relative">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={urlForImage(news[0].image)
-                        .width(1800)
-                        .height(1200)
-                        .fit("crop")
-                        .url()}
+                      src={coverImageUrl(news[0].image, 1800, 1200)}
                       alt={news[0].photoCaption || news[0].title}
                       className="h-64 w-full object-cover lg:h-full"
                     />
@@ -115,11 +111,7 @@ export default async function ActualitesPage() {
                       {item.image && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={urlForImage(item.image)
-                            .width(1200)
-                            .height(800)
-                            .fit("crop")
-                            .url()}
+                          src={coverImageUrl(item.image, 1200, 800)}
                           alt={item.photoCaption || item.title}
                           className="h-44 w-full object-cover"
                         />
