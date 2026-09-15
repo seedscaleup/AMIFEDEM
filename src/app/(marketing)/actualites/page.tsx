@@ -64,14 +64,14 @@ export default async function ActualitesPage() {
             </div>
           ) : (
             <div className="space-y-6">
-              <article className="overflow-hidden rounded-3xl bg-cream-50 shadow-sm ring-1 ring-secondary-100 lg:grid lg:grid-cols-2">
+              <article className="overflow-hidden rounded-3xl bg-cream-50 shadow-sm ring-1 ring-secondary-100">
                 {news[0].image && (
                   <div className="relative">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={coverImageUrl(news[0].image, 1800, 1200)}
                       alt={news[0].photoCaption || news[0].title}
-                      className="h-64 w-full object-cover lg:h-full"
+                      className="h-64 w-full object-cover sm:h-80 lg:h-96"
                     />
                     {news[0].photoCaption && (
                       <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-xs font-medium text-cream-50">
